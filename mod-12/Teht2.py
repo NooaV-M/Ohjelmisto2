@@ -14,4 +14,11 @@ def fetch_weather(location,API_key):
     temp = response['main']['temp']
     print(f"In {location},\nit's {temp} degrees\nand {description}")
 
-fetch_weather("helsinki",API_key)
+while True:
+    city = input("Enter city name or type exit to quit: ")
+    if city == "exit":
+        break
+    try:
+        fetch_weather(city, API_key)
+    except:
+        print(f"Please enter a valid city")
